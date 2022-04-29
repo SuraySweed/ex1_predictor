@@ -88,6 +88,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +141,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ex1.cpp" />
+    <ClCompile Include="bp.cpp" />
+    <ClCompile Include="bp_main.c" />
+    <ClCompile Include="branch_predictor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bp_api.h" />
+    <ClInclude Include="branch_predictor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

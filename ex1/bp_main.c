@@ -9,12 +9,15 @@
 #include "bp_api.h"
 
 int main(int argc, char **argv) {
+	/*
 	if (argc < 2) {
 		fprintf(stderr, "Usage: %s <trace filename>\n", argv[0]);
 		exit(1);
 	}
+	*/
 
-	FILE *trace = fopen(argv[1], "r");
+	//FILE *trace = fopen(argv[1], "r");
+	FILE* trace = fopen("tests\\example3.trc", "r");
 	if (trace == 0) {
 		fprintf(stderr, "cannot open trace file\n");
 		exit(2);

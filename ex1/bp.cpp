@@ -121,7 +121,7 @@ uint32_t BranchPredictor::getDataBySharePolicy(uint32_t pc, uint32_t hist)
 unsigned BranchPredictor::getTotalSize(unsigned btb_size, unsigned hist_size, unsigned tag_size,
 	bool is_global_hist, bool is_global_table)
 {
-	unsigned size = btb_size * (tag_size + 30); // 30 is address bit size
+	unsigned size = btb_size * (1 + tag_size + 30); // 30 is address bit size, 1 for valid bit
 	if (is_global_history) {
 		size += hist_size;
 	}
@@ -159,7 +159,7 @@ BranchPredictor::BranchPredictor(unsigned btbSize, unsigned historySize, unsigne
 	is_global_history(isGlobalHist), is_global_table(isGlobalTable), btb_size(btbSize), tag_size(tagSize)
 {
 	history_size = pow(2, historySize) - 1;
-	stats.size = getTotalSize(btbSize, historySize, tagSize, isGlobalHist, isGlobalTable) + 2;
+	stats.size = getTotalSize(btbSize, historySize, tagSize, isGlobalHist, isGlobalTable);
 	uint32_t numOfFSM;
 	if (isGlobalTable) 	numOfFSM = 1;
 	else numOfFSM = btbSize;
